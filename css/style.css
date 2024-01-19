@@ -109,7 +109,6 @@ body {
 }
 
 .player-data {
-  display: none;
   background-color: var(--oxford-blue);
   border: 2px solid var(--satin-sheen-gold);
   border-radius: 5px;
@@ -257,6 +256,7 @@ body {
 }
 
 .gem-managment {
+  display: none;
   position: relative;
   background-color: var(--oxford-blue);
   border: 2px solid var(--satin-sheen-gold);

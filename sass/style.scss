@@ -125,7 +125,7 @@ body {
 // =================== PLAYER DATA ==========================
 
 .player-data {
-	display: none;
+	// display: none;
 
 	background-color: var(--oxford-blue);
 	border: 2px solid var(--satin-sheen-gold);
@@ -312,7 +312,7 @@ body {
 // ============================= GEM MANAGMENT ===================================
 
 .gem-managment {
-	// display: none;
+	display: none;
 	position: relative;
 	background-color: var(--oxford-blue);
 	border: 2px solid var(--satin-sheen-gold);
