@@ -1,0 +1,642 @@
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+:root {
+	--red: #ea3546;
+	--oxford-blue: #001d3d;
+	--yale-blue: #003566;
+	--satin-sheen-gold: #cca000;
+	--jonquil: #f5cc00;
+}
+
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+
+body {
+	position: relative;
+	min-height: 110vh;
+	background-image: url(https://www.taransworld.com/GoW_graphics/Game/Background_Guild.png);
+	background-attachment: fixed;
+	background-size: cover;
+	font-family: 'Raleway', sans-serif;
+	text-shadow: 1px 1px 2px #000;
+}
+
+// ====================== COMPONENTS ======================
+
+.bg-shadow {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	margin: 0 auto;
+	height: 100%;
+	width: 100%;
+	// max-width: 1100px;
+	background-color: rgba(0, 0, 0, 0.3);
+	z-index: -1;
+}
+
+.wrapper {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+.edit-data-icon,
+.doomed-weapons-icon,
+.tribute-icon,
+.classes-icon,
+.gem-managment-icon,
+.exp-icon,
+.kingdoms-icon,
+.inventory-icon {
+	height: 30px;
+	margin-right: 10px;
+	pointer-events: none;
+}
+
+.disabled-btn {
+	cursor: not-allowed;
+	opacity: 0.5;
+}
+
+.inner-btn {
+	transition: transform 0.3s;
+}
+
+// ==================== HEADER ============================
+
+.header {
+	h1 {
+		font-size: 3.5rem;
+		color: var(--jonquil);
+		padding: 0.5em;
+		letter-spacing: 2px;
+		text-align: center;
+		text-transform: uppercase;
+
+		img {
+			height: 60px;
+		}
+	}
+}
+// ==================== NAV ============================
+
+.nav {
+	display: flex;
+	justify-content: space-between;
+	padding: 0.5em 1em;
+	margin-bottom: 0.5em;
+	background-color: var(--oxford-blue);
+	border: 2px solid var(--satin-sheen-gold);
+	border-radius: 5px;
+	overflow: hidden;
+
+	&__btn {
+		padding: 0.5em 1em;
+		font-size: 1.8rem;
+		background-color: var(--rich-black);
+		color: var(--jonquil);
+		border: 1px solid var(--satin-sheen-gold);
+		border-radius: 5px;
+		transition: transform 0.3s, background-color 0.3s, color 0.3s;
+		cursor: pointer;
+		text-shadow: 1px 1px 2px #000;
+
+		&:hover {
+			// background-color: var(--jonquil);
+			// color: var(--oxford-blue);
+			transform: scale(1.05);
+		}
+
+		&--active {
+			background-color: var(--satin-sheen-gold);
+			color: var(--oxford-blue);
+			text-shadow: none;
+		}
+	}
+}
+
+// =================== PLAYER DATA ==========================
+
+.player-data {
+	display: none;
+
+	background-color: var(--oxford-blue);
+	border: 2px solid var(--satin-sheen-gold);
+	border-radius: 5px;
+
+	&__classes-header-btn,
+	&__kingdoms-header-btn,
+	&__inventory-header-btn {
+		padding: 0.5em 1em;
+		width: 100%;
+		color: var(--jonquil);
+		background-color: var(--rich-black);
+		box-shadow: none;
+		border-bottom: 1px solid var(--jonquil);
+		font-size: 1.8rem;
+		text-shadow: 1px 1px 2px #000;
+	}
+	&__classes-header-btn:hover .inner-btn,
+	&__kingdoms-header-btn:hover .inner-btn,
+	&__inventory-header-btn:hover .inner-btn {
+		transform: scale(1.05);
+	}
+
+	&__classes-header-icon,
+	&__kingdoms-header-icon,
+	&__inventory-header-icon {
+		margin-left: 1em;
+		font-size: 2.2rem;
+		transition: transform 0.3s;
+	}
+
+	&__classes-body,
+	&__kingdoms-body,
+	&__inventory-body {
+		position: relative;
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-template-rows: repeat(10, 1fr);
+		gap: 0.5em;
+		height: 0px;
+		color: var(--jonquil);
+		font-size: 1.6rem;
+		overflow: hidden;
+		transition: height 0.5s, padding 0.5s;
+	}
+
+	&__classes-body::before,
+	&__kingdoms-body::before,
+	&__inventory-body::before {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		transform: scale(0.9);
+		background-size: contain;
+		background-position: center;
+		background-repeat: no-repeat;
+		opacity: 0.2;
+	}
+
+	&__classes-body::before {
+		background-image: url('https://www.taransworld.com/GoW_graphics/Game/Classes_champion_level.png');
+	}
+
+	&__kingdoms-body::before {
+		background-image: url('https://www.taransworld.com/GoW_graphics/Game/Kingdomupgrades_Deeds_Deed06.png');
+	}
+	&__inventory-body::before {
+		background-image: url('https://www.taransworld.com/GoW_graphics/Game/Adventurerspath_Adventurerspath_hero_path_rewards_4.png');
+	}
+	&__class-level,
+	&__kingdom-power {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 0.2em;
+		z-index: 1;
+	}
+
+	&__class-level-label {
+		width: 55%;
+	}
+
+	&__kingdom-power-label {
+		width: 65%;
+	}
+
+	&__class-level-input,
+	&__kingdom-power-input {
+		width: 20%;
+		color: var(--jonquil);
+		background-color: var(--yale-blue);
+		border: 1px solid var(--satin-sheen-gold);
+		border-radius: 5px;
+		text-align: center;
+	}
+}
+
+// =================== TRIBUTE ==========================
+
+.tribute {
+	display: none;
+
+	position: relative;
+	background-color: var(--oxford-blue);
+	border: 2px solid var(--satin-sheen-gold);
+	border-radius: 5px;
+
+	&__body {
+		position: relative;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(2, 1fr);
+		gap: 0.5em;
+		height: 200px;
+		color: var(--jonquil);
+		font-size: 1.6rem;
+		overflow: hidden;
+		transition: height 0.5s, padding 0.5s;
+
+		&::before {
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-image: url('https://www.taransworld.com/GoW_graphics/Game/Herolevelbackgrounds_TreasureHunt.png');
+			background-size: cover;
+			opacity: 0.2;
+		}
+	}
+
+	&__chest-img {
+		position: relative;
+		grid-column: 1/2;
+		grid-row: 1/3;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		height: 90%;
+	}
+
+	&__chest-img,
+	&__tributes-daily,
+	&__average-gems-per-tribute-div,
+	&__average-gems-per-day-div {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 1.8rem;
+		z-index: 1;
+	}
+
+	&__tributes-daily {
+		grid-column: 2/4;
+		grid-row: 1/2;
+		padding: 0.2em;
+
+		&-input {
+			padding: 0.2em 0.4em;
+			margin-left: 1em;
+			width: 3em;
+			color: var(--jonquil);
+			background-color: var(--yale-blue);
+			border: 1px solid var(--satin-sheen-gold);
+			border-radius: 5px;
+			font-size: 2rem;
+			text-align: center;
+			text-shadow: 1px 1px 2px #000;
+		}
+	}
+
+	&__average-gems-per-tribute-span,
+	&__average-gems-per-day-span {
+		margin-left: 0.5em;
+		font-size: 3rem;
+	}
+
+	&__gem-img {
+		margin-left: 0.2em;
+		height: 40px;
+	}
+}
+
+// ============================= GEM MANAGMENT ===================================
+
+.gem-managment {
+	// display: none;
+	position: relative;
+	background-color: var(--oxford-blue);
+	border: 2px solid var(--satin-sheen-gold);
+	border-radius: 5px;
+
+	&__body {
+		position: relative;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: 170px 1fr 100px;
+		gap: 1em;
+		// height: 700px;
+		color: var(--jonquil);
+		font-size: 1.6rem;
+		overflow: hidden;
+		transition: height 0.5s, padding 0.5s;
+
+		&::before {
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-image: url('https://www.taransworld.com/GoW_graphics/Game/Background_Treasurehoard.png');
+			background-size: cover;
+			opacity: 0.2;
+		}
+	}
+
+	&__weekly-events-div,
+	&__weekend-event-div,
+	&__guild-wars-div,
+	&__additional-gem-expenses-div,
+	&__additional-gem-incomes-div,
+	&__gem-balance-div {
+		padding: 1em;
+		font-size: 1.8rem;
+		z-index: 1;
+	}
+
+	&__weekly-event-label,
+	&__weekend-event-label,
+	&__guild-wars-label,
+	&__additional-expenses-header,
+	&__additional-incomes-header {
+		margin-bottom: 1em;
+		width: 100%;
+		font-size: 2rem;
+		text-align: center;
+	}
+
+	select {
+		padding: 0.2em 0.4em;
+	}
+	select,
+	button {
+		color: var(--jonquil);
+		background-color: var(--oxford-blue);
+		border: 1px solid var(--satin-sheen-gold);
+		border-radius: 5px;
+		text-shadow: 1px 1px 2px #000;
+	}
+
+	.label-icon {
+		&--big {
+			height: 40px;
+			margin-right: 5px;
+		}
+		&--small {
+			height: 30px;
+			margin-right: 5px;
+		}
+	}
+
+	&__weekly-event-total-cost-p,
+	&__weekend-event-total-cost-p,
+	&__guild-wars-total-cost-p {
+		text-align: center;
+	}
+
+	&__weekly-event-total-cost-amount,
+	&__weekend-event-total-cost-amount,
+	&__guild-wars-total-cost-amount {
+		font-size: 2.4rem;
+	}
+
+	&__weekly-events-div,
+	&__weekend-event-div,
+	&__guild-wars-div {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+	}
+
+	&__weekly-event-select,
+	&__weekend-event-select,
+	&__guild-wars-select {
+		margin-bottom: 0.5em;
+		width: 90%;
+		border: 1px solid var(--satin-sheen-gold);
+		border-radius: 5px;
+		text-align: center;
+	}
+
+	&__weekly-event-tier-select,
+	&__underspire-select,
+	&__epic-trial-offer-tier-select,
+	&__faction-event-tier-select,
+	&__pet-rescue-event-tier-select,
+	&__class-event-tier-select,
+	&__weekend-event-tier-select,
+	&__guild-wars-sentinels-select {
+		width: 110px;
+		text-align: center;
+	}
+
+	&__weekly-events-div {
+		grid-column: 1/2;
+		grid-row: 1/4;
+	}
+
+	// ===== DUNGEON =====
+
+	&__dungeon-offers-header {
+		margin-bottom: 0.3em;
+		width: 100%;
+		text-align: center;
+	}
+
+	&__gem-bounty-offer,
+	&__dragonite-offer {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding-right: 0.3em;
+
+		input {
+			padding: 0 0.2em;
+			width: 80px;
+			color: var(--jonquil);
+			background-color: var(--oxford-blue);
+			border: 1px solid var(--satin-sheen-gold);
+			border-radius: 5px;
+			text-align: center;
+			text-shadow: 1px 1px 2px #000;
+		}
+	}
+
+	&__gem-bounty-offer {
+		margin-bottom: 0.2em;
+	}
+
+	// ===== OTHER WEEKLY =====
+
+	&__underspire,
+	&__epic-trial-offer,
+	&__faction-event,
+	&__pet-rescue-event,
+	&__class-event {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-bottom: 0.3em;
+	}
+
+	// ===== OTHER EXPENSES & INCOMES =====
+
+	&__additional-gem-expenses-div {
+		grid-column: 2/3;
+		grid-row: 2/3;
+	}
+
+	&__additional-gem-incomes-div {
+		grid-column: 3/4;
+		grid-row: 2/3;
+	}
+
+	&__additional-expenses-input-area,
+	&__additional-incomes-input-area {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 0.5em;
+	}
+
+	&__additional-expenses-input-area-source,
+	&__additional-incomes-input-area-source {
+		width: 150px;
+		color: var(--jonquil);
+		background-color: var(--oxford-blue);
+		border: 1px solid var(--satin-sheen-gold);
+		border-radius: 5px;
+		text-align: center;
+		text-shadow: 1px 1px 2px #000;
+	}
+
+	&__additional-expenses-input-area-input,
+	&__additional-incomes-input-area-input {
+		width: 50px;
+		color: var(--jonquil);
+		background-color: var(--oxford-blue);
+		border: 1px solid var(--satin-sheen-gold);
+		border-radius: 5px;
+		text-align: center;
+		text-shadow: 1px 1px 2px #000;
+	}
+
+	&__additional-expenses-input-area-add-btn,
+	&__additional-incomes-input-area-add-btn,
+	&__additional-expenses-item-edit-btn,
+	&__additional-incomes-item-edit-btn,
+	&__additional-expenses-item-delete-btn,
+	&__additional-incomes-item-delete-btn {
+		padding: 0.1em 0.6em;
+		font-size: 2rem;
+	}
+
+	&__additional-expenses-items,
+	&__additional-incomes-items {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: space-between;
+	}
+
+	&__additional-expenses-item,
+	&__additional-incomes-item {
+		position: relative;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		margin-bottom: 0.6em;
+	}
+
+	&__additional-expenses-item-name,
+	&__additional-incomes-item-name {
+		margin: 0;
+		width: 50%;
+	}
+
+	&__additional-expenses-item-amount,
+	&__additional-incomes-item-amount {
+		width: 15%;
+		text-align: right;
+	}
+
+	&__buttons-box {
+		position: absolute;
+		right: 0;
+	}
+
+	// ===== WEEKEND & GW & BALANCE =====
+
+	&__weekend-event-div {
+		grid-column: 2/3;
+		grid-row: 1/2;
+	}
+
+	&__guild-wars-div {
+		grid-column: 3/4;
+		grid-row: 1/2;
+	}
+
+	&__gem-balance-div {
+		position: absolute;
+		grid-column: 3/4;
+		grid-row: 3/4;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: flex-start;
+		top: -30px;
+		padding-top: 0;
+	}
+
+	&__gem-balance-header {
+		font-size: 2.4rem;
+		z-index: 2;
+	}
+
+	&__gem-balance-amount {
+		font-size: 4rem;
+		z-index: 2;
+	}
+
+	&__gems-cup-img {
+		position: absolute;
+		bottom: 10px;
+		height: 180px;
+		opacity: 0.5;
+	}
+
+	&__sunglasses-icon,
+	&__fear-icon {
+		position: absolute;
+		display: none;
+		right: 20px;
+		bottom: 20px;
+	}
+}
+
+// ============================= FOOTER ===================================
+
+// .footer {
+// 	position: absolute;
+// 	margin-top: 2em;
+// 	padding: 1em 0;
+// 	bottom: 0;
+// 	background-color: var(--oxford-blue);
+// 	color: var(--jonquil);
+// 	border-top: 2px solid var(--satin-sheen-gold);
+
+// 	p {
+// 		margin: 0;
+
+// 		span {
+// 			text-transform: uppercase;
+// 		}
+// 	}
+
+// 	&__img{
+// 		position:absolute;
+// 		top: 0;
+// 		height: 150px;
+// 		width: 100%;
+// 	}
+// }

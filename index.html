@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoW MultiTool</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a8d49e252e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <h1><img src="https://theme.zdassets.com/theme_assets/604801/de33bf74362cdf4d8b9f07d9f60cf5ce600ae369.png"
+                alt="gow logo"> MultiTool <img
+                src="https://www.taransworld.com/GoW_graphics/Game/Liveevents_Liveevents_icon_task_reroll.png"
+                alt="gear">
+        </h1>
+    </header>
+
+    <div class="wrapper">
+
+        <nav>
+            <section class="nav">
+                <button class="nav__btn nav__player-data-btn nav__btn--active"><img
+                        src="https://www.taransworld.com/GoW_graphics/Game/Liveevents_Liveevents_event_point_8.png"
+                        class="edit-data-icon" alt="edit data">Edit data</button>
+                <button class="nav__btn nav__doomed-weapons-btn disabled-btn" disabled><img
+                        src="https://www.taransworld.com/GoW_graphics/Game/Commonrewards_icon_cursedrune.png"
+                        class="doomed-weapons-icon" alt="doomed weapons">Doomed weapons</button>
+                <button class="nav__btn nav__tribute-btn"><img
+                        src="https://www.taransworld.com/GoW_graphics/Game/Commonrewards_icon_tribute.png"
+                        class="tribute-icon" alt="tribute">Tribute</button>
+                <button class="nav__btn nav__classes-btn disabled-btn" disabled><img
+                        src="https://www.taransworld.com/GoW_graphics/Game/Classes_sorcerer.png" class="classes-icon"
+                        alt="classes">Classes</button>
+                <button class="nav__btn nav__gem-managment-btn"><img
+                        src="https://www.taransworld.com/GoW_graphics/Game/Shop_Shop_Icons_item_gems0.png"
+                        class="gem-managment-icon" alt="gems managment">Gem managment</button>
+            </section>
+
+        </nav>
+
+        <section class="player-data">
+
+            <div class="player-data__classes">
+                <div class="player-data__classes-header">
+                    <button class="player-data__classes-header-btn disabled-btn" disabled>
+                        <div class="inner-btn"><img
+                                src="https://www.taransworld.com/GoW_graphics/Game/Commonrewards_icon_champion_xp.png"
+                                class="exp-icon" alt="experience">
+                            Hero Classes<i class="player-data__classes-header-icon fa-solid fa-chevron-down"></i></div>
+                    </button>
+                </div>
+
+                <div class="player-data__classes-body">
+
+                    <div class="player-data__class-level">
+                        <label class="player-data__class-level-label">Archer</label>
+                        <input class="player-data__class-level-input archer" onchange="setClassLevel(this)">
+                    </div>
+                    <div class="player-data__class-level">
+                        <label class="player-data__class-level-label">Archmagus</label>
+                        <input class="player-data__class-level-input archmagus" onchange="setClassLevel(this)">
+                    </div>
+                    <div class="player-data__class-level">
+                        <label class="player-data__class-level-label">Assassin</label>
+                        <input class="player-data__class-level-input assassin" onchange="setClassLevel(this)">
+                    </div>
+                    <div class="player-data__class-level">
+                        <label class="player-data__class-level-label">Barbarian</label>
+                        <input class="player-data__class-level-input barbarian" onchange="setClassLevel(this)">
+                    </div>
+                    <div class="player-data__class-level">
+                        <label class="player-data__class-level-label">Bard</label>
+                        <input class="player-data__class-level-input bard" onchange="setClassLevel(this)">
+                    </div>
+                    <div class="player-data__class-level">
+                        <label class="player-data__class-level-label">Corsair</label>
+                        <input class="player-data__class-level-input corsair" onchange="setClassLevel(this)">
+                    </div>
+                    <div class="player-data__class-level">
+                        <label class="player-data__class-level-label">Deathknight</label>
+                        <input class="player-data__class-level-input deathknight" onchange="setClassLevel(this)">
+                    </div>
+                    <div class="player-data__class-level">
+                        <label class="player-data__class-level-label">Dervish</label>
+                        <input class="player-data__class-level-input dervish" onchange="setClassLevel(this)">
+                    </div>
+                    <div class="player-data__class-level">
+                        <label class="player-data__class-level-label">Diabolist</label>
+                        <input class="player-data__class-level-input diabolist" onchange="setClassLevel(this)">
+                    </div>
+                    <div class="player-data__class-level">
+                        <label class="player-data__class-level-label">Doomsayer</label>
+                        <input class="player-data__class-level-input doomsayer" onchange="setClassLevel(this)">
+                    </div>
+                    <div class="player-data__class-level">
+                        <label class="player-data__class-level-label">Dragonguard</label>
+                        <input class="player-data__class-level-input dragonguard" onchange="setClassLevel(this)">
+                    </div>
+                    <div class="player-data__class-level">
+                        <label class="player-data__class-level-label">Elementalist</label>
+                        <input class="player-data__class-level-input elementalist" onchange="setClassLevel(this)">
+                    </div>
+                    <div class="player-data__class-level">
+                        <label class="player-data__class-level-label">Frostmage</label>
+                        <input class="player-data__class-level-input frostmage" onchange="setClassLevel(this)">
+                    </div>
+                    <div class="player-data__class-level">
+                        <label class="player-data__class-level-label">Geomancer</label>
+                        <input class="player-data__class-level-input geomancer" onchange="setClassLevel(this)">
+                    </div>
+                    <div class="player-data__class-level">
+                        <label class="player-data__class-level-label">Hierophant</label>
+                        <input class="player-data__class-level-input hierophant" onchange="setClassLevel(this)">
+                    </div>
+                    <div class="player-data__class-level">
+                        <label class="player-data__class-level-label">Knight</label>
+                        <input class="player-data__class-level-input knight" onchange="setClassLevel(this)">
+                    </div>
+                    <div class="player-data__class-level">
+                        <label class="player-data__class-level-label">Mechanist</label>
+                        <input class="player-data__class-level-input mechanist" onchange="setClassLevel(this)">
+                    </div>
+                    <div class="player-data__class-level">
+                        <label class="player-data__class-level-label">Monk</label>
+                        <input class="player-data__class-level-input monk" onchange="setClassLevel(this)">
+                    </div>
+                    <div class="player-data__class-level">
+                        <label class="player-data__class-level-label">Necromancer</label>
+                        <input class="player-data__class-level-input necromancer" onchange="setClassLevel(this)">
+                    </div>
+                    <div class="player-data__class-level">
+                        <label class="player-data__class-level-label">Nightweaver</label>
+                        <input class="player-data__class-level-input nightweaver" onchange="setClassLevel(this)">
+                    </div>
+                    <div class="player-data__class-level">
+                        <label class="player-data__class-level-label">Oracle</label>
+                        <input class="player-data__class-level-input oracle" onchange="setClassLevel(this)">
+                    </div>
+                    <div class="player-data__class-level">
+                        <label class="player-data__class-level-label">Orbweaver</label>
+                        <input class="player-data__class-level-input orbweaver" onchange="setClassLevel(this)">
+                    </div>
+                    <div class="player-data__class-level">
+                        <label class="player-data__class-level-label">Plaguelord</label>
+                        <input class="player-data__class-level-input plaguelord" onchange="setClassLevel(this)">
+                    </div>
+                    <div class="player-data__class-level">
+                        <label class="player-data__class-level-label">Priest</label>
+                        <input class="player-data__class-level-input priest" onchange="setClassLevel(this)">
+                    </div>
+                    <div class="player-data__class-level">
+                        <label class="player-data__class-level-label">Runepriest</label>
+                        <input class="player-data__class-level-input runepriest" onchange="setClassLevel(this)">
+                    </div>
+                    <div class="player-data__class-level">
+                        <label class="player-data__class-level-label">Sentinel</label>
+                        <input class="player-data__class-level-input sentinel" onchange="setClassLevel(this)">
+                    </div>
+                    <div class="player-data__class-level">
+                        <label class="player-data__class-level-label">Shaman</label>
+                        <input class="player-data__class-level-input shaman" onchange="setClassLevel(this)">
+                    </div>
+                    <div class="player-data__class-level">
+                        <label class="player-data__class-level-label">Slayer</label>
+                        <input class="player-data__class-level-input slayer" onchange="setClassLevel(this)">
+                    </div>
+                    <div class="player-data__class-level">
+                        <label class="player-data__class-level-label">Sorcerer</label>
+                        <input class="player-data__class-level-input sorcerer" onchange="setClassLevel(this)">
+                    </div>
+                    <div class="player-data__class-level">
+                        <label class="player-data__class-level-label">Spiritwalker</label>
+                        <input class="player-data__class-level-input spiritwalker" onchange="setClassLevel(this)">
+                    </div>
+                    <div class="player-data__class-level">
+                        <label class="player-data__class-level-label">Stormcaller</label>
+                        <input class="player-data__class-level-input stormcaller" onchange="setClassLevel(this)">
+                    </div>
+                    <div class="player-data__class-level">
+                        <label class="player-data__class-level-label">Sunspear</label>
+                        <input class="player-data__class-level-input sunspear" onchange="setClassLevel(this)">
+                    </div>
+                    <div class="player-data__class-level">
+                        <label class="player-data__class-level-label">Thief</label>
+                        <input class="player-data__class-level-input thief" onchange="setClassLevel(this)">
+                    </div>
+                    <div class="player-data__class-level">
+                        <label class="player-data__class-level-label">Tidecaller</label>
+                        <input class="player-data__class-level-input tidecaller" onchange="setClassLevel(this)">
+                    </div>
+                    <div class="player-data__class-level">
+                        <label class="player-data__class-level-label">Titan</label>
+                        <input class="player-data__class-level-input titan" onchange="setClassLevel(this)">
+                    </div>
+                    <div class="player-data__class-level">
+                        <label class="player-data__class-level-label">Warden</label>
+                        <input class="player-data__class-level-input warden" onchange="setClassLevel(this)">
+                    </div>
+                    <div class="player-data__class-level">
+                        <label class="player-data__class-level-label">Warlord</label>
+                        <input class="player-data__class-level-input warlord" onchange="setClassLevel(this)">
+                    </div>
+                    <div class="player-data__class-level">
+                        <label class="player-data__class-level-label">Warpriest</label>
+                        <input class="player-data__class-level-input warpriest" onchange="setClassLevel(this)">
+                    </div>
+                </div>
+            </div>
+
+            <div class="player-data__kingdoms">
+                <div class="player-data__kingdoms-header">
+                    <button class="player-data__kingdoms-header-btn">
+                        <div class="inner-btn"><img
+                                src="https://www.taransworld.com/GoW_graphics/Game/Kingdomupgrades_Kingdomlevelicons_level09.png"
+                                class="kingdoms-icon" alt="kingdoms">
+                            Kingdoms Power<i class="player-data__kingdoms-header-icon fa-solid fa-chevron-down"></i>
+                        </div>
+                    </button>
+                </div>
+                <div class="player-data__kingdoms-body">
+
+                    <div class="player-data__class-level">
+                        <label class="player-data__kingdom-power-label">Adana</label>
+                        <input class="player-data__kingdom-power-input adana" onchange="setKingdomPowerLevel(this)">
+                    </div>
+                    <div class="player-data__kingdom-power">
+                        <label class="player-data__kingdom-power-label">Blackhawk</label>
+                        <input class="player-data__kingdom-power-input blackhawk" onchange="setKingdomPowerLevel(this)">
+                    </div>
+                    <div class="player-data__kingdom-power">
+                        <label class="player-data__kingdom-power-label">Blighted Lands</label>
+                        <input class="player-data__kingdom-power-input blighted-lands"
+                            onchange="setKingdomPowerLevel(this)">
+                    </div>
+                    <div class="player-data__kingdom-power">
+                        <label class="player-data__kingdom-power-label">Bright Forest</label>
+                        <input class="player-data__kingdom-power-input bright-forest"
+                            onchange="setKingdomPowerLevel(this)">
+                    </div>
+                    <div class="player-data__kingdom-power">
+                        <label class="player-data__kingdom-power-label">Broken Spire</label>
+                        <input class="player-data__kingdom-power-input broken-spire"
+                            onchange="setKingdomPowerLevel(this)">
+                    </div>
+                    <div class="player-data__kingdom-power">
+                        <label class="player-data__kingdom-power-label">Darkstone</label>
+                        <input class="player-data__kingdom-power-input darkstone" onchange="setKingdomPowerLevel(this)">
+                    </div>
+                    <div class="player-data__kingdom-power">
+                        <label class="player-data__kingdom-power-label">Dhrak-Zum</label>
+                        <input class="player-data__kingdom-power-input dhrak-zum" onchange="setKingdomPowerLevel(this)">
+                    </div>
+                    <div class="player-data__kingdom-power">
+                        <label class="player-data__kingdom-power-label">Divinion Fields</label>
+                        <input class="player-data__kingdom-power-input divinion-fields"
+                            onchange="setKingdomPowerLevel(this)">
+                    </div>
+                    <div class="player-data__kingdom-power">
+                        <label class="player-data__kingdom-power-label">Dragon's Claw</label>
+                        <input class="player-data__kingdom-power-input dragons-claw"
+                            onchange="setKingdomPowerLevel(this)">
+                    </div>
+                    <div class="player-data__kingdom-power">
+                        <label class="player-data__kingdom-power-label">Drifting Sands</label>
+                        <input class="player-data__kingdom-power-input drifting-sands"
+                            onchange="setKingdomPowerLevel(this)">
+                    </div>
+                    <div class="player-data__kingdom-power">
+                        <label class="player-data__kingdom-power-label">Forest of Thorns</label>
+                        <input class="player-data__kingdom-power-input forest-of-thorns"
+                            onchange="setKingdomPowerLevel(this)">
+                    </div>
+                    <div class="player-data__kingdom-power">
+                        <label class="player-data__kingdom-power-label">Ghulvania</label>
+                        <input class="player-data__kingdom-power-input ghulvania" onchange="setKingdomPowerLevel(this)">
+                    </div>
+                    <div class="player-data__kingdom-power">
+                        <label class="player-data__kingdom-power-label">Glacial Peaks</label>
+                        <input class="player-data__kingdom-power-input glacial-peaks"
+                            onchange="setKingdomPowerLevel(this)">
+                    </div>
+                    <div class="player-data__kingdom-power">
+                        <label class="player-data__kingdom-power-label">Grosh-Nak</label>
+                        <input class="player-data__kingdom-power-input grosh-nak" onchange="setKingdomPowerLevel(this)">
+                    </div>
+                    <div class="player-data__kingdom-power">
+                        <label class="player-data__kingdom-power-label">Hellcrag</label>
+                        <input class="player-data__kingdom-power-input hellcrag" onchange="setKingdomPowerLevel(this)">
+                    </div>
+                    <div class="player-data__kingdom-power">
+                        <label class="player-data__kingdom-power-label">Karakoth</label>
+                        <input class="player-data__kingdom-power-input karakoth" onchange="setKingdomPowerLevel(this)">
+                    </div>
+                    <div class="player-data__kingdom-power">
+                        <label class="player-data__kingdom-power-label">Khaziel</label>
+                        <input class="player-data__kingdom-power-input khaziel" onchange="setKingdomPowerLevel(this)">
+                    </div>
+                    <div class="player-data__kingdom-power">
+                        <label class="player-data__kingdom-power-label">Khetar</label>
+                        <input class="player-data__kingdom-power-input khetar" onchange="setKingdomPowerLevel(this)">
+                    </div>
+                    <div class="player-data__kingdom-power">
+                        <label class="player-data__kingdom-power-label">Leonis Empire</label>
+                        <input class="player-data__kingdom-power-input leonis-empire"
+                            onchange="setKingdomPowerLevel(this)">
+                    </div>
+                    <div class="player-data__kingdom-power">
+                        <label class="player-data__kingdom-power-label">Maugrim Woods</label>
+                        <input class="player-data__kingdom-power-input maugrim-woods"
+                            onchange="setKingdomPowerLevel(this)">
+                    </div>
+                    <div class="player-data__kingdom-power">
+                        <label class="player-data__kingdom-power-label">Merlantis</label>
+                        <input class="player-data__kingdom-power-input merlantis" onchange="setKingdomPowerLevel(this)">
+                    </div>
+                    <div class="player-data__kingdom-power">
+                        <label class="player-data__kingdom-power-label">Mist Of Scales</label>
+                        <input class="player-data__kingdom-power-input mist-of-scales"
+                            onchange="setKingdomPowerLevel(this)">
+                    </div>
+                    <div class="player-data__kingdom-power">
+                        <label class="player-data__kingdom-power-label">Mydnight</label>
+                        <input class="player-data__kingdom-power-input mydnight" onchange="setKingdomPowerLevel(this)">
+                    </div>
+                    <div class="player-data__kingdom-power">
+                        <label class="player-data__kingdom-power-label">Nexus</label>
+                        <input class="player-data__kingdom-power-input nexus" onchange="setKingdomPowerLevel(this)">
+                    </div>
+                    <div class="player-data__kingdom-power">
+                        <label class="player-data__kingdom-power-label">Pan's Vale</label>
+                        <input class="player-data__kingdom-power-input pans-vale" onchange="setKingdomPowerLevel(this)">
+                    </div>
+                    <div class="player-data__kingdom-power">
+                        <label class="player-data__kingdom-power-label">Pridelands</label>
+                        <input class="player-data__kingdom-power-input pridelands"
+                            onchange="setKingdomPowerLevel(this)">
+                    </div>
+                    <div class="player-data__kingdom-power">
+                        <label class="player-data__kingdom-power-label">Shentang</label>
+                        <input class="player-data__kingdom-power-input shentang" onchange="setKingdomPowerLevel(this)">
+                    </div>
+                    <div class="player-data__kingdom-power">
+                        <label class="player-data__kingdom-power-label">Silverglade</label>
+                        <input class="player-data__kingdom-power-input silverglade"
+                            onchange="setKingdomPowerLevel(this)">
+                    </div>
+                    <div class="player-data__kingdom-power">
+                        <label class="player-data__kingdom-power-label">Sin of Maraj</label>
+                        <input class="player-data__kingdom-power-input sin-of-maraj"
+                            onchange="setKingdomPowerLevel(this)">
+                    </div>
+                    <div class="player-data__kingdom-power">
+                        <label class="player-data__kingdom-power-label">Stormheim</label>
+                        <input class="player-data__kingdom-power-input stormheim" onchange="setKingdomPowerLevel(this)">
+                    </div>
+                    <div class="player-data__kingdom-power">
+                        <label class="player-data__kingdom-power-label">Suncrest</label>
+                        <input class="player-data__kingdom-power-input suncrest" onchange="setKingdomPowerLevel(this)">
+                    </div>
+                    <div class="player-data__kingdom-power">
+                        <label class="player-data__kingdom-power-label">Sword's Edge</label>
+                        <input class="player-data__kingdom-power-input swords-edge"
+                            onchange="setKingdomPowerLevel(this)">
+                    </div>
+                    <div class="player-data__kingdom-power">
+                        <label class="player-data__kingdom-power-label">Urskaya</label>
+                        <input class="player-data__kingdom-power-input urskaya" onchange="setKingdomPowerLevel(this)">
+                    </div>
+                    <div class="player-data__kingdom-power">
+                        <label class="player-data__kingdom-power-label">Vulpacea</label>
+                        <input class="player-data__kingdom-power-input vulpacea" onchange="setKingdomPowerLevel(this)">
+                    </div>
+                    <div class="player-data__kingdom-power">
+                        <label class="player-data__kingdom-power-label">Whitehelm</label>
+                        <input class="player-data__kingdom-power-input whitehelm" onchange="setKingdomPowerLevel(this)">
+                    </div>
+                    <div class="player-data__kingdom-power">
+                        <label class="player-data__kingdom-power-label">Wild Plains</label>
+                        <input class="player-data__kingdom-power-input wild-plains"
+                            onchange="setKingdomPowerLevel(this)">
+                    </div>
+                    <div class="player-data__kingdom-power">
+                        <label class="player-data__kingdom-power-label">Zaejin</label>
+                        <input class="player-data__kingdom-power-input zaejin" onchange="setKingdomPowerLevel(this)">
+                    </div>
+                    <div class="player-data__kingdom-power">
+                        <label class="player-data__kingdom-power-label">Zhul'Kari</label>
+                        <input class="player-data__kingdom-power-input zhul-kari" onchange="setKingdomPowerLevel(this)">
+                    </div>
+
+                </div>
+
+                <div class="player-data__inventory">
+                    <div class="player-data__inventory-header">
+                        <button class="player-data__inventory-header-btn disabled-btn" disabled>
+                            <div class="inner-btn"><img
+                                    src="https://www.taransworld.com/GoW_graphics/Game/Commonrewards_gnome_sack.png"
+                                    class="inventory-icon" alt="inventory">
+                                Inventory<i class="player-data__inventory-header-icon fa-solid fa-chevron-down"></i>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="player-data__inventory-body">
+
+                    </div>
+                </div>
+        </section>
+
+        <!-- TRIBUTE -->
+        <section class="tribute">
+            <div class="tribute__body">
+                <img class="tribute__chest-img"
+                    src="https://www.taransworld.com/GoW_graphics/Game/Commonrewards_icon_treasure.png"
+                    alt="tresure chest">
+                <div class="tribute__tributes-daily">
+                    <label class="tribute__tributes-daily-label">Tributes collected daily</label>
+                    <input class="tribute__tributes-daily-input" onchange="calculateGemsPerTribute(value)">
+                </div>
+                <div class="tribute__average-gems-per-tribute-div">
+                    <p>Average Gems per Tribute: <span class="tribute__average-gems-per-tribute-span">0</span><img
+                            class="tribute__gem-img"
+                            src="https://www.taransworld.com/GoW_graphics/Game/Commonrewards_icon_gem.png" alt="gem">
+                    </p>
+                </div>
+                <div class="tribute__average-gems-per-day-div">
+                    <p>Average Gems per Day: <span class="tribute__average-gems-per-day-span">0</span><img
+                            class="tribute__gem-img"
+                            src="https://www.taransworld.com/GoW_graphics/Game/Commonrewards_icon_gem.png" alt="gem">
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="gem-managment">
+            <div class="gem-managment__body">
+
+                <!-- ALL WEEKLY EVENTS -->
+                <div class="gem-managment__weekly-events-div">
+
+                    <!-- MAIN WEEKLY EVENT -->
+                    <label class="gem-managment__weekly-event-label"><img class="label-icon--big
+                        " src="https://www.taransworld.com/GoW_graphics/Game/Calendaricons_Calendaricons_daily_calendar_calender.png"
+                            alt="calendar"> Entire Week</label>
+                    <select class="gem-managment__weekly-event-select" onchange="weeklyEventsExport()">
+                        <option value="0" disabled selected>Main Weekly Event</option>
+                        <option value="1">World Event</option>
+                        <option value="2">Journey</option>
+                        <option value="3">Raid Boss</option>
+                        <option value="4">Tower of Doom</option>
+                        <option value="5">Invasion</option>
+                    </select>
+
+                    <div class="gem-managment__weekly-event-tier-div">
+                        <label class="gem-managment__weekly-event-tier-label">Tiers purchased</label>
+                        <select class="gem-managment__weekly-event-tier-select"
+                            onchange="calculateTotalWeeklyEventCost(value)">
+                            <option value="0">none</option>
+                            <option value="1">Tier 1</option>
+                            <option value="2">Tier 2</option>
+                            <option value="3">Tier 3</option>
+                            <option value="4">Tier 4</option>
+                            <option value="5">Tier 5</option>
+                            <option value="6">Tier 6</option>
+                            <option value="7">Tier 7</option>
+                            <option value="8">Tier 7 x2</option>
+                            <option value="9">Tier 7 x3</option>
+                            <option value="10">Tier 7 x4</option>
+                            <option value="11">Tier 7 x5</option>
+                        </select>
+
+                        <p class="gem-managment__weekly-event-total-cost-p">Event expenses: <span
+                                class="gem-managment__weekly-event-total-cost-amount"></span> </p>
+                        <hr>
+                    </div>
+
+                    <!-- OTHER WEEKLY EVENTS -->
+                    <div class="gem-managment__weekly-events-other-div">
+
+                        <!-- DUNGEON OFFER -->
+                        <div class="gem-managment__dungeon-offers">
+                            <label class="gem-managment__dungeon-offers-header">Daily Dungeon Offers</label>
+
+                            <!-- GEM BOUNTY -->
+                            <div class="gem-managment__gem-bounty-offer">
+
+                                <label class="gem-managment__gem-bounty-offer-label"><img class="label-icon--small"
+                                        src="https://www.taransworld.com/GoW_graphics/Game/Runes_JewelDiamond.png"
+                                        alt="diamonds">Gem Bounty</label>
+                                <input class="gem-managment__gem-bounty-offer-input" type="text"
+                                    onchange="setGemBountyCost(value)">
+                            </div>
+
+                            <!-- DRAGONITE -->
+                            <div class="gem-managment__dragonite-offer">
+                                <label class="gem-managment__dragonite-offer-label"><img class="label-icon--small"
+                                        src="https://www.taransworld.com/GoW_graphics/Game/Commonrewards_icon_dragonite.png"
+                                        alt="dragonite">Dragonite</label>
+                                <input class="gem-managment__dragonite-offer-input" type="text"
+                                    onchange="setDragoniteCost(value)">
+                            </div>
+                        </div>
+                        <hr>
+
+                        <!-- UNDERSPIRE -->
+                        <div class="gem-managment__underspire">
+                            <label class="gem-managment__underspire-label">Underspire - Torches purchased</label>
+                            <div class="gem-managment__icon-and-select-box">
+                                <img class="label-icon--small"
+                                    src="https://www.taransworld.com/GoW_graphics/Game/Liveevents_Liveevents_sigil_17.png"
+                                    alt="torch">
+                                <select class="gem-managment__underspire-select"
+                                    onchange="calculateUnderspireCost(value)">
+                                    <option value="0">0</option>
+                                    <option value="1">5 /day</option>
+                                    <option value="2">10 /day</option>
+                                    <option value="3">15 /day</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!--  TRIAL OFFER -->
+                        <div class="gem-managment__epic-trial-offer">
+                            <label class="gem-managment__epic-trial-offer-label">Epic Trial - Pets purchased</label>
+                            <div class="gem-managment__icon-and-select-box">
+                                <img class="label-icon--small"
+                                    src="https://www.taransworld.com/GoW_graphics/Game/Pet_276_0.png"
+                                    alt="starry dragon">
+                                <select class="gem-managment__epic-trial-offer-tier-select"
+                                    onchange="calculateEpicTrialCost(value)">
+                                    <option value="0">0</option>
+                                    <option value="1">5x</option>
+                                    <option value="2">10x</option>
+                                    <option value="3">15x</option>
+                                    <option value="4">20x</option>
+                                    <option value="5">25x</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <!-- FACTION EVENT -->
+                        <div class="gem-managment__faction-event">
+                            <label class="gem-managment__faction-event-label">Faction - Tiers purchased</label>
+                            <div class="gem-managment__icon-and-select-box">
+                                <img class="label-icon--small"
+                                    src="https://www.taransworld.com/GoW_graphics/Game/Liveevents_Liveevents_sigil_7.png"
+                                    alt="sigil">
+                                <select class="gem-managment__faction-event-tier-select"
+                                    onchange="calculateFactionCost(value)">
+                                    <option value="0">none</option>
+                                    <option value="1">Tier 1</option>
+                                    <option value="2">Tier 2</option>
+                                    <option value="3">Tier 3</option>
+                                    <option value="4">Tier 4</option>
+                                    <option value="5">Tier 5</option>
+                                    <option value="6">Tier 6</option>
+                                    <option value="7">Tier 7</option>
+                                    <option value="8">Tier 7 x2</option>
+                                    <option value="9">Tier 7 x3</option>
+                                    <option value="10">Tier 7 x4</option>
+                                    <option value="11">Tier 7 x5</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- PET RESCUE -->
+                        <div class="gem-managment__pet-rescue-event">
+                            <label class="gem-managment__pet-rescue-event-label">Pet Rescue - Tiers purchased</label>
+                            <div class="gem-managment__icon-and-select-box">
+                                <img class="label-icon--small"
+                                    src="https://www.taransworld.com/GoW_graphics/Game/Chat_Emojis_catprint.png"
+                                    alt="pet paw">
+                                <select class="gem-managment__pet-rescue-event-tier-select"
+                                    onchange="calculatePetRescueCost(value)">
+                                    <option value="0">none</option>
+                                    <option value="1">Tier 1</option>
+                                    <option value="2">Tier 2</option>
+                                    <option value="3">Tier 3</option>
+                                    <option value="4">Tier 4</option>
+                                    <option value="5">Tier 5</option>
+                                    <option value="6">Tier 6</option>
+                                    <option value="7">Tier 7</option>
+                                    <option value="8">Tier 7 x2</option>
+                                    <option value="9">Tier 7 x3</option>
+                                    <option value="10">Tier 7 x4</option>
+                                    <option value="11">Tier 7 x5</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- CLASS -->
+                        <div class="gem-managment__class-event">
+                            <label class="gem-managment__class-event-label">Class - Tiers purchased</label>
+                            <div class="gem-managment__icon-and-select-box">
+                                <img class="label-icon--small"
+                                    src="https://www.taransworld.com/GoW_graphics/Game/Commonrewards_path_booster0.png"
+                                    alt="xp">
+                                <select class="gem-managment__class-event-tier-select"
+                                    onchange="calculateClassCost(value)">
+                                    <option value="0">none</option>
+                                    <option value="1">Tier 1</option>
+                                    <option value="2">Tier 2</option>
+                                    <option value="3">Tier 3</option>
+                                    <option value="4">Tier 4</option>
+                                    <option value="5">Tier 5</option>
+                                    <option value="6">Tier 6</option>
+                                    <option value="7">Tier 7</option>
+                                    <option value="8">Tier 7 x2</option>
+                                    <option value="9">Tier 7 x3</option>
+                                    <option value="10">Tier 7 x4</option>
+                                    <option value="11">Tier 7 x5</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- WEEKEND EVENT -->
+                <div class="gem-managment__weekend-event-div">
+                    <label class="gem-managment__weekend-event-label">
+                        <img class="label-icon--big
+                        " src="https://icons.iconarchive.com/icons/iconarchive/fat-sugar-food/512/Drink-Beer-icon.png"
+                            alt="beers">
+                        Weekend Only</label>
+                    <select class="gem-managment__weekend-event-select" onchange="setWeekendEvent(value)">
+                        <option value="0" disabled selected>Choose Weekend Event</option>
+                        <option value="1">Palooza</option>
+                        <option value="2">Arena</option>
+                        <option value="3">Bounty</option>
+                        <option value="4">Faction Expansion</option>
+                    </select>
+
+                    <div class="gem-managment__weekend-event-tier-div">
+                        <label class="gem-managment__weekend-event-tier-label">Tiers purchased</label>
+                        <select class="gem-managment__weekend-event-tier-select"
+                            onchange="calculateTotalWeekendEventCost(value)">
+                            <option value="0">none</option>
+                            <option value="1">Tier 1</option>
+                            <option value="2">Tier 2</option>
+                            <option value="3">Tier 3</option>
+                            <option value="4">Tier 4</option>
+                            <option value="5">Tier 5</option>
+                            <option value="6">Tier 6</option>
+                            <option value="7">Tier 7</option>
+                            <option value="8">Tier 7 x2</option>
+                            <option value="9">Tier 7 x3</option>
+                            <option value="10">Tier 7 x4</option>
+                            <option value="11">Tier 7 x5</option>
+                        </select>
+                        <p class="gem-managment__weekend-event-total-cost-p">Event expenses: <span
+                                class="gem-managment__weekend-event-total-cost-amount"></span> </p>
+                        <hr>
+                    </div>
+                </div>
+
+                <!-- GUILD WARS -->
+                <div class="gem-managment__guild-wars-div">
+                    <label class="gem-managment__guild-wars-label"><img class="label-icon--big
+                        " src="https://www.taransworld.com/GoW_graphics/Game/Chat_Emojis_barbarianaxe.png" alt="axe">
+                        Guild Wars </label>
+                    <select class="gem-managment__guild-wars-select" onchange="setGuildWars(value)">
+                        <option value="0" disabled selected>Guild Wars this week?</option>
+                        <option value="1">Yes</option>
+                        <option value="2">Not this time</option>
+                    </select>
+                    <div class="gem-managment__guild-wars-sentinels-div">
+                        <label class="gem-managment__guild-wars-sentinels-label">Tiers purchased</label>
+                        <select class="gem-managment__guild-wars-sentinels-select"
+                            onchange="calculateGuildWarsCost(value)">
+                            <option value="0">none</option>
+                            <option value="1">Tier 1</option>
+                            <option value="2">Tier 2</option>
+                            <option value="3">Tier 3</option>
+                            <option value="4">Tier 4</option>
+                            <option value="5">Tier 5</option>
+                        </select>
+                        <p class="gem-managment__guild-wars-total-cost-p">Event expenses: <span
+                                class="gem-managment__guild-wars-total-cost-amount"></span> </p>
+                        <hr>
+                    </div>
+                </div>
+
+                <!-- ADDITIONAL EXPENSES -->
+                <div class="gem-managment__additional-gem-expenses-div">
+                    <h3 class="gem-managment__additional-expenses-header">Other expenses</h3>
+                    <div class="gem-managment__additional-expenses-input-area">
+                        <input class="gem-managment__additional-expenses-input-area-source" type="text"
+                            placeholder="Expense source"></input>
+                        <input class="gem-managment__additional-expenses-input-area-input" type="text" placeholder="0">
+                        <button class="gem-managment__additional-expenses-input-area-add-btn" onclick="addExpense()">
+                            <i class="fa-solid fa-plus"></i></button>
+                    </div>
+
+                    <hr>
+
+                    <div class="gem-managment__additional-expenses-items">
+                        <!-- <div class="gem-managment__additional-expenses-item">
+                            <p class="gem-managment__additional-expenses-item-name">Whatever</p>
+                            <span class="gem-managment__additional-expenses-item-amount">500</span>
+                            <div class="gem-managment__buttons-box"><button
+                                    class="gem-managment__additional-expenses-item-edit-btn"><i
+                                        class="fa-regular fa-pen-to-square"></i></button>
+                                <button class="gem-managment__additional-expenses-item-delete-btn"><i
+                                        class="fa-regular fa-trash-can"></i></button>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+
+                <!-- ADDITIONAL INCOMES -->
+                <div class="gem-managment__additional-gem-incomes-div">
+                    <h3 class="gem-managment__additional-incomes-header">Other incomes</h3>
+                    <div class="gem-managment__additional-incomes-input-area">
+                        <input class="gem-managment__additional-incomes-input-area-source" type="text"
+                            placeholder="Income source"></input>
+                        <input class="gem-managment__additional-incomes-input-area-input" type="text" placeholder="0">
+                        <button class="gem-managment__additional-incomes-input-area-add-btn" onclick="addIncome()">
+                            <i class="fa-solid fa-plus"></i></button>
+                    </div>
+
+                    <hr>
+
+                    <div class="gem-managment__additional-incomes-items">
+                        <!-- <div class="gem-managment__additional-incomes-item">
+                            <p class="gem-managment__additional-incomes-item-name">Whatever</p>
+                            <span class="gem-managment__additional-incomes-item-amount">500</span>
+                            <div class="gem-managment__buttons-box">
+                                <button class="gem-managment__additional-incomes-item-edit-btn"><i
+                                        class="fa-regular fa-pen-to-square"></i></button>
+                                <button class="gem-managment__additional-incomes-item-delete-btn"><i
+                                        class="fa-regular fa-trash-can"></i></button>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+
+                <!-- BALANCE -->
+                <div class="gem-managment__gem-balance-div">
+                    <h2 class="gem-managment__gem-balance-header">Weekly gems balance</h2>
+                    <p class="gem-managment__gem-balance-amount">0 </p>
+                    <img class="gem-managment__gems-cup-img"
+                        src="https://www.taransworld.com/GoW_graphics/Game/Shop_Shop_Icons_item_gems3.png"
+                        alt="gems in cup">
+                </div>
+                <img class="gem-managment__sunglasses-icon"
+                    src="https://www.taransworld.com/GoW_graphics/Game/Chat_Emojis_sunglasses.png"
+                    alt="smile in sunglasses">
+                <img class="gem-managment__fear-icon"
+                    src="https://www.taransworld.com/GoW_graphics/Game/Chat_Emojis_fear.png" alt="fear">
+
+            </div>
+        </section>
+
+    </div>
+
+    <div class="bg-shadow"></div>
+    <!-- <footer class="footer">
+        <p>&copy; <span>Azganoth</span> from <span>Polski Atak</span></p>
+        <img class="footer__img" src="https://www.taransworld.com/GoW_graphics/Game/Herolevelbackgrounds_GuildWars.png"
+            alt="footer hero img">
+        <div class="bg-shadow"></div>
+    </footer> -->
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
