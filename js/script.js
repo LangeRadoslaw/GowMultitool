@@ -818,6 +818,44 @@ const calculateGemsBalance = () => {
 
 	manageBalanceIcon(gemsBalance)
 }
+
+calculateGemsBalanceAfterImport = () => {
+	gemBountyInput.value == '' ? (gemBountyInput.value = 0) : null
+	dragoniteInput.value == '' ? (dragoniteInput.value = 0) : null
+	expensesIncomesSummary2 == undefined ? (expensesIncomesSummary2 = 0) : null
+
+    calculateTotalWeeklyEventCost(weeklyEventTierSelect.value)
+    gemBountyCost =  parseInt(gemBountyInput.value)
+    dragoniteCost =  parseInt(dragoniteInput.value)
+    calculateUnderspireCost(underspireSelect.value) 
+    calculateEpicTrialCost(epicTrialSelect.value)
+    calculateFactionCost(factionSelect.value)
+    calculatePetRescueCost(petRescueSelect.value)
+    calculateClassCost(classSelect.value)
+    setGuildWars(guildWarsSelect.value)
+    calculateGuildWarsCost(guildWarsSentinelsSelect.value)
+    manageExpensesIncomesSummary()
+
+	gemsBalance =
+		7 * parseInt(averageGemsPerDaySpan.textContent) -
+		(totalWeeklyEventCost +
+			gemBountyCost +
+			dragoniteCost +
+			underspireCost +
+			epicTrialCost +
+			factionCost +
+			petRescueCost +
+			classCost +
+			factionExpansionCost +
+			bountyCost +
+			guildWarsCost) +
+		expensesIncomesSummary2
+
+	gemBalanceAmount.textContent = gemsBalance
+	// expensesIncomesSummary = 0
+
+	manageBalanceIcon(gemsBalance)
+}
 //  ==================
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -900,9 +938,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	setWeekendEvent(weekendEventSelect.value)
 	calculateGuildWarsCost(guildWarsSentinelsSelect.value)
-	calculateGemsBalance()
+	calculateGemsBalanceAfterImport()
 })
 
-// localStorage.setItem('guildWarsSelect', guildWarsSelect.value)
-// localStorage.setItem('guildWarsSentinelsSelect', guildWarsSentinelsSelect.value)
-// localStorage.setItem('guildWarsTotalCostAmount', guildWarsTotalCostAmount.textContent)
+
